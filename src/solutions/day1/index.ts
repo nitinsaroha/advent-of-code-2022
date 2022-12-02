@@ -36,7 +36,7 @@ export async function day1puzzle2(filename = 'day1-input.txt') {
   const allSums: number[] = [];
   let sum = 0
 
-  // Optimal Solution: Maintain a min-heap of top k elements
+  // How to improve? Maintain a min-heap of top k elements
   for await (const line of rl) {
     // empty line means new Elf
     if (line === ''){
