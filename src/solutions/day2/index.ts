@@ -87,7 +87,20 @@ export async function day2puzzle1(filename = "day2-input.txt") {
   return sum
 }
 
-export async function day2puzzle2(filename = "day2-sample-input.txt") {
+// X = lose, Y = draw, Z = win
+const mapKeys = new Map<string, string>([
+  ['A X', 'Z'],
+  ['A Y', 'X'],
+  ['A Z', 'Y'],
+  ['B X', 'X'],
+  ['B Y', 'Y'],
+  ['B Z', 'Z'],
+  ['C X', 'Y'],
+  ['C Y', 'Z'],
+  ['C Z', 'X'],
+]);
+
+export async function day2puzzle2(filename = "day2-input.txt") {
   const fileStream = fs.createReadStream( join(__dirname, filename), 'utf-8');
 
   const rl = readline.createInterface({
@@ -95,15 +108,19 @@ export async function day2puzzle2(filename = "day2-sample-input.txt") {
     crlfDelay: Infinity,
   });
 
+  let sum = 0
   for await (const line of rl) {
     // empty line means new Elf
     if (line === ''){
       continue
     }
-    const [computer, player] = line.split(' ');
-    const playerScore = score(computer, player);
-    console.log(playerScore)
+    const [computer, _] = line.split(' ');
+    const player = mapKeys.get(line);
+    if (player) {
+      const playerScore = score(computer, player);
+      sum += playerScore
+    }
   }
 
-  return 1
+  return sum
 }
