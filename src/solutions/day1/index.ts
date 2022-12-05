@@ -1,7 +1,6 @@
 import { join } from "path";
 import * as fs from "fs";
 import * as readline from "readline";
-import { privateEncrypt } from "crypto";
 
 export async function day1puzzle1(filename = 'day1-input.txt') {
   const fileStream = fs.createReadStream( join(__dirname, filename), 'utf-8');
