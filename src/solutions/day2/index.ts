@@ -88,7 +88,7 @@ export async function day2puzzle1(filename = "day2-input.txt") {
 }
 
 // X = lose, Y = draw, Z = win
-const mapKeys = new Map<string, string>([
+const Puzzle2Strategy = new Map<string, string>([
   ['A X', 'Z'],
   ['A Y', 'X'],
   ['A Z', 'Y'],
@@ -115,7 +115,7 @@ export async function day2puzzle2(filename = "day2-input.txt") {
       continue
     }
     const [computer, _] = line.split(' ');
-    const player = mapKeys.get(line);
+    const player = Puzzle2Strategy.get(line);
     if (player) {
       const playerScore = score(computer, player);
       sum += playerScore
