@@ -1,6 +1,5 @@
 import { join } from "path";
-import * as fs from "fs";
-import * as readline from "readline";
+import { readFileByLine } from "../../utils";
 
 interface ScoresMapping {
   [key: string]: number;
@@ -63,12 +62,7 @@ function score(computer: string, player: string){
 }
 
 export async function day2puzzle1(filename = "day2-input.txt") {
-  const fileStream = fs.createReadStream( join(__dirname, filename), 'utf-8');
-
-  const rl = readline.createInterface({
-    input: fileStream,
-    crlfDelay: Infinity,
-  });
+  const rl = readFileByLine( join(__dirname, filename));
 
   let sum = 0
   for await (const line of rl) {
@@ -101,12 +95,7 @@ const Puzzle2Strategy = new Map<string, string>([
 ]);
 
 export async function day2puzzle2(filename = "day2-input.txt") {
-  const fileStream = fs.createReadStream( join(__dirname, filename), 'utf-8');
-
-  const rl = readline.createInterface({
-    input: fileStream,
-    crlfDelay: Infinity,
-  });
+  const rl = readFileByLine( join(__dirname, filename));
 
   let sum = 0
   for await (const line of rl) {

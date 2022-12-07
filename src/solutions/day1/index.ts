@@ -1,14 +1,8 @@
 import { join } from "path";
-import * as fs from "fs";
-import * as readline from "readline";
+import { readFileByLine } from "../../utils";
 
 export async function day1puzzle1(filename = 'day1-input.txt') {
-  const fileStream = fs.createReadStream( join(__dirname, filename), 'utf-8');
-
-  const rl = readline.createInterface({
-    input: fileStream,
-    crlfDelay: Infinity,
-  });
+  const rl = readFileByLine( join(__dirname, filename));
 
   let max = Number.MIN_VALUE
   let sum = 0
@@ -25,12 +19,7 @@ export async function day1puzzle1(filename = 'day1-input.txt') {
 }
 
 export async function day1puzzle2(filename = 'day1-input.txt') {
-  const fileStream = fs.createReadStream( join(__dirname, filename), 'utf-8');
-
-  const rl = readline.createInterface({
-    input: fileStream,
-    crlfDelay: Infinity,
-  });
+  const rl = readFileByLine( join(__dirname, filename));
 
   const allSums: number[] = [];
   let sum = 0
