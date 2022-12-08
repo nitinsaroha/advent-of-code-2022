@@ -9,7 +9,7 @@ describe('Day 3', () => {
 
   test('Puzzle 2', async () => {
     const result = await day4puzzle2();
-    const answer = 1
+    const answer = 888
     expect(result).toBe(answer);
   });
 });
