@@ -1,6 +1,6 @@
 import { day4puzzle1, day4puzzle2 } from "./index";
 
-describe('Day 3', () => {
+describe('Day 4', () => {
   test('Puzzle 1', async () => {
     const result = await day4puzzle1();
     const answer = 471
